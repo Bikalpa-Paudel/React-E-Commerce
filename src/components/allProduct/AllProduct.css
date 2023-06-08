@@ -1,0 +1,34 @@
+.product{
+    background-color: #FFFFFF;
+    padding: .7rem;  
+    cursor: pointer; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.pro-img{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+.pro-img > img{
+    height: 100%;
+    overflow-x: hidden;
+}
+.star{
+    font-size: 1.2rem;
+}
+.add-btn{
+    width: 100px;
+    padding: .5rem;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all .2s;
+}
+.add-btn:hover{
+    color: white;
+    background-color: black;
+}
