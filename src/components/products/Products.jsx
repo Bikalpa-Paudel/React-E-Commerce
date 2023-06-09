@@ -14,6 +14,7 @@ export const Products = () => {
    const allProducts = productData.map((data)=>{
      return <Product 
      img={data.image}
+     title={data.title}
      key={data.id}
      description={data.description}
      price={data.price}
