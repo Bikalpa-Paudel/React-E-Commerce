@@ -24,7 +24,7 @@
     flex-direction: column;
     gap: 20px;
 }
-.email input, .password input{
+.email input, .password input, .user-name input{
     outline: none;
     border: none;
     border-bottom: 2px solid rgb(41, 67, 112);

@@ -1,14 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import Product from '../allProduct/AllProduct'
 import './Products.css'
+import { AppContext } from '../../AppContex'
 
 export const Products = () => {
-    const [productData, setProductData] = useState([]);
+    const {productData, setProductData} = useContext(AppContext);
+    console.log(AppContext)
     useEffect(()=>{
         fetch('https://fakestoreapi.com/products')
         .then(res=>res.json())
         .then(data=> setProductData(data))
     },[])
+
+
+    // const [productData, setProductData] = useState([]);
+    // useEffect(()=>{
+    //     fetch('https://fakestoreapi.com/products')
+    //     .then(res=>res.json())
+    //     .then(data=> setProductData(data))
+    // },[])
 
 
    const allProducts = productData.map((data)=>{

@@ -1,20 +1,24 @@
-import React, {useState} from 'react';
+import {useContext, useState} from 'react';
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { NavLink, useNavigate } from 'react-router-dom'
 import './Login.css'
+import { AppContext } from '../../AppContex';
  
 const Login = () => {
     const navigate = useNavigate();
+    const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const {setUser} = useContext(AppContext);
        
     const onLogin = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
+            setUserName(userName)
+            setUser(userName)
             navigate("/")
         })
         .catch((error) => {
@@ -33,6 +37,19 @@ const Login = () => {
                         <h1> Login </h1>                       
                                                        
                         <form className='login-form'>                                              
+                            <div className='user-name'>
+                                <label htmlFor="user">
+                                    Full Name
+                                </label>
+                                <input
+                                    id="user-name"
+                                    name="user"
+                                    type="text"
+                                    value={userName}                                    
+                                    required                             
+                                    onChange={(e)=>setUserName(e.target.value)}
+                                />
+                            </div>
                             <div className='email'>
                                 <label htmlFor="email-address">
                                     Email address
