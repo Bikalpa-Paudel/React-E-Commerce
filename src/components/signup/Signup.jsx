@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 import { auth } from '../../firebase';
+import './Login.css'
  
 const Signup = () => {
     const navigate = useNavigate();
@@ -32,12 +33,12 @@ const Signup = () => {
  
   return (
     <main >        
-        <section>
+        <section className='login-section'>
             <div>
-                <div>                  
-                    <h1> FocusApp </h1>                                                                            
-                    <form>                                                                                            
-                        <div>
+                <div className='login-box'>                  
+                    <h1> sign up </h1>                                                                            
+                    <form className='login-form'>                                                                                            
+                        <div className='email'>
                             <label htmlFor="email-address">
                                 Email address
                             </label>
@@ -46,12 +47,11 @@ const Signup = () => {
                                 label="Email address"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}  
-                                required                                    
-                                placeholder="Email address"                                
+                                required                                                                 
                             />
                         </div>
 
-                        <div>
+                        <div className='password'>
                             <label htmlFor="password">
                                 Password
                             </label>
@@ -60,14 +60,14 @@ const Signup = () => {
                                 label="Create password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} 
-                                required                                 
-                                placeholder="Password"              
+                                required                                             
                             />
                         </div>                                             
                         
                         <button
                             type="submit" 
-                            onClick={onSubmit}                        
+                            onClick={onSubmit} 
+                            className='login-btn'                       
                         >  
                             Sign up                                
                         </button>
